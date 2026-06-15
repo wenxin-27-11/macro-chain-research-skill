@@ -2,11 +2,83 @@
 
 # 宏观产业链研究 Skill
 
-A lightweight AI Skill Package for macro-chain research, evidence verification, and A-share candidate research pool management.
+A lightweight AI Skill Package for macro-chain research, evidence verification, anti-hallucination checks, and A-share candidate research pool management.
 
-一个轻量化的 AI 宏观产业链研究 Skill Package，用于把宏观主题、产业链结构、供需瓶颈、公司映射、证据核验和候选研究池管理整理成可复用的 AI 研究工作流。
+一个轻量化的 AI 宏观产业链研究 Skill Package，用于宏观主题研究、产业链拆解、供需瓶颈识别、证据核验、反幻觉检查和 A 股候选研究池管理。
+
+This project is designed for research workflow support only. It does not provide financial advice, stock recommendations, trading signals, price predictions, or return guarantees.
 
 本项目仅用于研究辅助，不构成投资建议、证券推荐、交易信号、价格预测或收益承诺。
+
+---
+
+## Why This Project Is Different
+
+Many AI investment research prompts stop at generating a list of related companies.
+
+This project is designed to be more structured, more conservative, and easier to reuse.
+
+It is not a one-shot prompt. It is a lightweight Skill Package with:
+
+* a skill definition file;
+* reusable task prompts;
+* structured input and output schemas;
+* evidence-level rules;
+* anti-hallucination checks;
+* candidate research pool templates;
+* usage workflow documentation;
+* fictional examples for safe demonstration.
+
+The key difference is that this project does not ask AI to directly “find stocks”.
+
+Instead, it asks AI to:
+
+1. identify the macro theme;
+2. map the industry chain;
+3. locate possible supply-demand bottlenecks;
+4. verify company exposure with evidence;
+5. separate facts, inferences, assumptions, and insufficient evidence;
+6. classify companies into a research pool;
+7. generate follow-up verification tasks.
+
+If reliable data is not available, the model must not output high-priority candidates or strong conclusions.
+
+This makes the project closer to a structured research workflow than a simple stock-picking prompt.
+
+---
+
+## 这个项目和普通 Prompt 有什么不同？
+
+很多投研类 Prompt 只会让 AI 输出一批相关公司名单。
+
+本项目更关注结构化、证据约束、反幻觉和长期候选池管理。
+
+它不是一次性 Prompt，而是一个轻量化 Skill Package，包含：
+
+* Skill 定义文件；
+* 可复用任务 Prompt；
+* 输入输出 Schema；
+* 证据等级规则；
+* 反幻觉检查；
+* 候选研究池模板；
+* 使用工作流说明；
+* 安全的虚构示例。
+
+本项目不要求 AI 直接“找股票”。
+
+它要求 AI 先完成：
+
+1. 识别宏观主题；
+2. 拆解产业链；
+3. 判断可能的供需瓶颈；
+4. 用证据核验公司真实业务关联；
+5. 区分事实、推断、假设和证据不足；
+6. 将公司放入候选研究池；
+7. 生成后续验证任务。
+
+如果缺少可靠数据，模型不得输出第一梯队候选或强结论。
+
+因此，它更接近一套结构化研究工作流，而不是简单的选股 Prompt。
 
 ---
 
