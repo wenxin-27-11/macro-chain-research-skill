@@ -1,0 +1,190 @@
+name: macro-chain-research-skill
+version: 0.1.0
+package_type: skill-package
+status: experimental
+license: MIT
+language: zh-CN
+
+display:
+  title: Macro Chain Research Skill
+  subtitle: A lightweight AI skill package for macro-chain research.
+  zh_title: 宏观产业链研究 Skill
+  zh_subtitle: 一个轻量化的 AI 宏观产业链研究 Skill 模板
+
+description: >
+  A lightweight AI research skill package for transforming macro themes and market
+  narratives into structured industry-chain research tasks, supply-demand bottleneck
+  analysis, A-share company mapping, evidence verification, and candidate research
+  pool management.
+
+methodology_reference:
+  - Public macro-chain and industry-chain research methodology
+
+positioning:
+  purpose: >
+    Help users conduct structured research on macro themes, industry chains,
+    supply-demand bottlenecks, and A-share related companies.
+  not_purpose: >
+    This skill does not provide investment advice, stock recommendations,
+    trading signals, price predictions, or guaranteed return analysis.
+
+core_principles:
+  - Start from macro themes and industry-chain bottlenecks, not from stock tickers.
+  - Do not treat market narratives as confirmed facts.
+  - Do not confuse concept exposure with real business exposure.
+  - Do not output buy, sell, or hold recommendations.
+  - Separate confirmed facts, reasonable inferences, unverified assumptions, and insufficient evidence.
+  - Prioritize evidence quality over narrative popularity.
+  - Always identify risks, uncertainties, and exclusion reasons.
+
+scope:
+  supported_tasks:
+    - macro_theme_research
+    - industry_chain_mapping
+    - supply_demand_bottleneck_analysis
+    - company_mapping
+    - evidence_verification
+    - candidate_research_pool_building
+    - candidate_research_pool_update
+    - risk_exclusion
+    - follow_up_verification_task_generation
+
+  unsupported_tasks:
+    - financial_advice
+    - stock_recommendation
+    - trading_signal_generation
+    - price_prediction
+    - portfolio_allocation
+    - automatic_trading
+    - guaranteed_return_analysis
+    - insider_information_analysis
+    - rumor_based_recommendation
+
+inputs:
+  required:
+    - theme
+    - market
+  optional:
+    - time_range
+    - target_industry
+    - data_sources
+    - company_list
+    - research_depth
+    - output_format
+
+outputs:
+  - theme_summary
+  - demand_source_analysis
+  - industry_chain_map
+  - bottleneck_segments
+  - company_mapping_table
+  - evidence_assessment
+  - risk_assessment
+  - candidate_research_pool
+  - exclusion_reasons
+  - follow_up_verification_tasks
+
+evidence_levels:
+  A:
+    label: highest
+    description: >
+      Company announcements, annual reports, interim reports, prospectuses,
+      exchange inquiry letters, regulatory filings, official production capacity,
+      customer certification, or order disclosures.
+  B:
+    label: strong
+    description: >
+      Industry association data, government documents, tender data, reputable
+      industry databases, institutional research reports, or cross-verified
+      upstream and downstream disclosures.
+  C:
+    label: weak
+    description: >
+      Financial media, expert interviews, industry news, conference summaries,
+      or non-official survey notes. These can be used only as research clues.
+  D:
+    label: unverified
+    description: >
+      Social media opinions, forum discussions, unsourced screenshots,
+      unverified rumors, or vague market narratives. These cannot support
+      high-priority conclusions.
+
+reasoning_categories:
+  confirmed_facts:
+    description: Information directly supported by reliable evidence.
+  reasonable_inferences:
+    description: Logical conclusions derived from confirmed facts, but not directly disclosed.
+  unverified_assumptions:
+    description: Hypotheses that require further verification.
+  insufficient_evidence:
+    description: Claims or links that cannot be verified with available data.
+
+candidate_pool_levels:
+  tier_1:
+    description: >
+      Companies with clear industry-chain position, strong bottleneck relevance,
+      relatively strong evidence, and identifiable but manageable risks.
+  tier_2:
+    description: >
+      Companies with relevant exposure and partial evidence, but requiring
+      further verification on business purity, customers, capacity, or orders.
+  watchlist:
+    description: >
+      Companies related to the theme but with weak evidence, unclear business
+      exposure, or insufficient data.
+  excluded:
+    description: >
+      Companies excluded due to weak evidence, concept hype, low business purity,
+      excessive valuation pressure, deteriorating fundamentals, or major risks.
+
+workflow_modules:
+  theme_scanner:
+    purpose: Identify the macro theme, demand source, and market narrative.
+  chain_mapper:
+    purpose: Break down the theme into upstream, midstream, downstream, and infrastructure layers.
+  bottleneck_finder:
+    purpose: Identify supply-demand mismatches, hard-to-expand segments, substitution difficulty, technology barriers, and customer certification constraints.
+  evidence_checker:
+    purpose: Verify whether company exposure is supported by reliable evidence.
+  candidate_pool_builder:
+    purpose: Classify companies into tier_1, tier_2, watchlist, or excluded.
+  review_loop:
+    purpose: Generate follow-up verification tasks and update research priority over time.
+
+output_rules:
+  - Include evidence level for each key claim.
+  - Separate facts, inferences, assumptions, and insufficient evidence.
+  - Provide exclusion reasons when a company is not included in a higher-priority pool.
+  - Provide follow-up verification tasks.
+  - Do not output direct investment advice.
+  - Do not use phrases equivalent to must buy, sure win, guaranteed, or target price.
+  - Do not rank companies as trading recommendations.
+  - Research priority must not be presented as investment recommendation.
+
+localization:
+  zh-CN:
+    title: 宏观产业链研究 Skill
+    subtitle: 一个轻量化的 AI 宏观产业链研究 Skill 模板
+    positioning: >
+      本 Skill 用于帮助使用者将宏观热点、产业主题和市场叙事拆解为可验证的
+      产业链环节、供需瓶颈、A 股相关公司以及后续研究任务。
+    disclaimer: >
+      本 Skill 仅用于 AI 辅助研究流程设计，不构成任何投资建议、证券推荐、
+      收益承诺或交易指令。使用者应自行核验所有数据和结论，并独立承担投资决策风险。
+    candidate_pool_labels:
+      tier_1: 第一梯队
+      tier_2: 第二梯队
+      watchlist: 观察池
+      excluded: 排除池
+    workflow_module_labels:
+      theme_scanner: 主题扫描器
+      chain_mapper: 产业链拆解器
+      bottleneck_finder: 瓶颈识别器
+      evidence_checker: 证据核验器
+      candidate_pool_builder: 候选研究池生成器
+      review_loop: 复盘循环器
+
+disclaimer: >
+  This skill is for AI-assisted research workflow design only. It does not
+  constitute financial advice, securities recommendation, return guarantee,
+  or trading instruction. Users must independently verify all data and conclusions.

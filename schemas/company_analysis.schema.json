@@ -1,0 +1,446 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/wenxin-27-11/macro-chain-research-skill/blob/main/schemas/company_analysis.schema.json",
+  "title": "Company Analysis Schema",
+  "description": "Structured output schema for analyzing a company within a macro-theme and industry-chain research workflow. This schema is for research support only and must not be used as investment advice.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "generated_at",
+    "theme",
+    "market",
+    "company",
+    "chain_position",
+    "bottleneck_assessment",
+    "business_exposure",
+    "evidence_assessment",
+    "reasoning_breakdown",
+    "risk_assessment",
+    "candidate_pool_decision",
+    "follow_up_verification_tasks",
+    "disclaimer"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "default": "0.1.0"
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "theme": {
+      "type": "string"
+    },
+    "market": {
+      "type": "string",
+      "default": "A-share"
+    },
+    "company": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "ticker",
+        "exchange"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "ticker": {
+          "type": "string"
+        },
+        "exchange": {
+          "type": "string"
+        },
+        "brief_description": {
+          "type": "string"
+        }
+      }
+    },
+    "chain_position": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "industry_layer",
+        "segment",
+        "position_description"
+      ],
+      "properties": {
+        "industry_layer": {
+          "type": "string",
+          "enum": [
+            "upstream",
+            "midstream",
+            "downstream",
+            "infrastructure",
+            "equipment",
+            "materials",
+            "services",
+            "unclear"
+          ]
+        },
+        "segment": {
+          "type": "string"
+        },
+        "position_description": {
+          "type": "string"
+        },
+        "is_core_segment": {
+          "type": "string",
+          "enum": [
+            "yes",
+            "no",
+            "unclear"
+          ]
+        }
+      }
+    },
+    "bottleneck_assessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "bottleneck_relevance",
+        "main_reasons"
+      ],
+      "properties": {
+        "bottleneck_relevance": {
+          "type": "string",
+          "enum": [
+            "high",
+            "medium",
+            "low",
+            "unclear"
+          ]
+        },
+        "main_reasons": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "supply_constraint_factors": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "demand_drivers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "uncertainties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "business_exposure": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "exposure_level",
+        "business_purity",
+        "exposure_description"
+      ],
+      "properties": {
+        "exposure_level": {
+          "type": "string",
+          "enum": [
+            "high",
+            "medium",
+            "low",
+            "unclear"
+          ]
+        },
+        "business_purity": {
+          "type": "string",
+          "enum": [
+            "high",
+            "medium",
+            "low",
+            "unclear"
+          ]
+        },
+        "exposure_description": {
+          "type": "string"
+        },
+        "revenue_contribution_status": {
+          "type": "string",
+          "enum": [
+            "confirmed",
+            "partially_confirmed",
+            "not_disclosed",
+            "unclear"
+          ]
+        },
+        "customer_or_order_status": {
+          "type": "string",
+          "enum": [
+            "confirmed",
+            "partially_confirmed",
+            "not_disclosed",
+            "unclear"
+          ]
+        }
+      }
+    },
+    "evidence_assessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "overall_evidence_level",
+        "evidence_summary",
+        "evidence_items"
+      ],
+      "properties": {
+        "overall_evidence_level": {
+          "type": "string",
+          "enum": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "insufficient"
+          ]
+        },
+        "evidence_summary": {
+          "type": "string"
+        },
+        "evidence_items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "source_type",
+              "source_name",
+              "evidence_level",
+              "summary"
+            ],
+            "properties": {
+              "source_type": {
+                "type": "string",
+                "enum": [
+                  "company_announcement",
+                  "financial_report",
+                  "prospectus",
+                  "exchange_inquiry",
+                  "regulatory_filing",
+                  "industry_database",
+                  "government_document",
+                  "industry_association",
+                  "research_report",
+                  "media_news",
+                  "expert_interview",
+                  "conference_note",
+                  "social_media",
+                  "forum_discussion",
+                  "unsourced_claim",
+                  "other"
+                ]
+              },
+              "source_name": {
+                "type": "string"
+              },
+              "source_date": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "format": "date"
+              },
+              "evidence_level": {
+                "type": "string",
+                "enum": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+                ]
+              },
+              "summary": {
+                "type": "string"
+              },
+              "url": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "limitations": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "reasoning_breakdown": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "confirmed_facts",
+        "reasonable_inferences",
+        "unverified_assumptions",
+        "insufficient_evidence"
+      ],
+      "properties": {
+        "confirmed_facts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "reasonable_inferences": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "unverified_assumptions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "insufficient_evidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "risk_assessment": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "risk_type",
+          "severity",
+          "description"
+        ],
+        "properties": {
+          "risk_type": {
+            "type": "string",
+            "enum": [
+              "insufficient_evidence",
+              "concept_hype",
+              "low_business_purity",
+              "valuation_pressure",
+              "capacity_risk",
+              "customer_certification_risk",
+              "demand_uncertainty",
+              "margin_pressure",
+              "financial_risk",
+              "governance_risk",
+              "regulatory_risk",
+              "market_crowding",
+              "other"
+            ]
+          },
+          "severity": {
+            "type": "string",
+            "enum": [
+              "high",
+              "medium",
+              "low",
+              "unclear"
+            ]
+          },
+          "description": {
+            "type": "string"
+          },
+          "possible_impact": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "candidate_pool_decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "research_priority",
+        "decision_summary",
+        "not_investment_advice"
+      ],
+      "properties": {
+        "research_priority": {
+          "type": "string",
+          "enum": [
+            "tier_1",
+            "tier_2",
+            "watchlist",
+            "excluded"
+          ]
+        },
+        "decision_summary": {
+          "type": "string"
+        },
+        "upgrade_conditions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "downgrade_conditions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "exclusion_reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "not_investment_advice": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    },
+    "follow_up_verification_tasks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "task",
+          "priority",
+          "suggested_source"
+        ],
+        "properties": {
+          "task": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "string",
+            "enum": [
+              "high",
+              "medium",
+              "low"
+            ]
+          },
+          "suggested_source": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "disclaimer": {
+      "type": "string",
+      "const": "This output is for research support only and does not constitute investment advice, stock recommendation, trading signal, price prediction, or return guarantee."
+    }
+  }
+}

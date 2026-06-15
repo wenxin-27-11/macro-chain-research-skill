@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/wenxin-27-11/macro-chain-research-skill/blob/main/schemas/research_input.schema.json",
+  "title": "Research Input Schema",
+  "description": "Input schema for starting a macro-theme and industry-chain research task.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "task_type",
+    "theme",
+    "market"
+  ],
+  "properties": {
+    "task_type": {
+      "type": "string",
+      "enum": [
+        "macro_theme_research",
+        "industry_chain_mapping",
+        "company_mapping",
+        "company_analysis",
+        "candidate_pool_update",
+        "risk_review"
+      ],
+      "description": "The type of research task to perform."
+    },
+    "theme": {
+      "type": "string",
+      "description": "The macro theme or industry topic to research.",
+      "minLength": 1
+    },
+    "market": {
+      "type": "string",
+      "description": "The target market for the research task.",
+      "default": "A-share"
+    },
+    "time_range": {
+      "type": "string",
+      "description": "The research time window."
+    },
+    "target_industry": {
+      "type": "string",
+      "description": "Optional target industry if the macro theme is broad."
+    },
+    "research_question": {
+      "type": "string",
+      "description": "The user's specific research question or focus."
+    },
+    "company_list": {
+      "type": "array",
+      "description": "Optional list of companies or tickers for mapping, comparison, or verification.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "ticker": {
+            "type": "string"
+          },
+          "exchange": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "data_sources": {
+      "type": "array",
+      "description": "Data sources available to the user or the model.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "company_announcements",
+          "financial_reports",
+          "exchange_inquiries",
+          "regulatory_filings",
+          "industry_reports",
+          "research_reports",
+          "government_documents",
+          "industry_association_data",
+          "tender_data",
+          "media_news",
+          "social_media_discussions",
+          "user_provided_materials",
+          "other"
+        ]
+      },
+      "uniqueItems": true
+    },
+    "research_depth": {
+      "type": "string",
+      "enum": [
+        "quick_scan",
+        "standard_research",
+        "deep_research"
+      ],
+      "default": "standard_research"
+    },
+    "output_language": {
+      "type": "string",
+      "enum": [
+        "zh-CN",
+        "en"
+      ],
+      "default": "zh-CN"
+    },
+    "output_format": {
+      "type": "string",
+      "enum": [
+        "markdown",
+        "json",
+        "table",
+        "mixed"
+      ],
+      "default": "markdown"
+    },
+    "constraints": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "research_only": {
+          "type": "boolean",
+          "const": true
+        },
+        "no_investment_advice": {
+          "type": "boolean",
+          "const": true
+        },
+        "require_evidence_level": {
+          "type": "boolean",
+          "default": true
+        },
+        "require_risk_assessment": {
+          "type": "boolean",
+          "default": true
+        },
+        "require_follow_up_tasks": {
+          "type": "boolean",
+          "default": true
+        }
+      }
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional user notes, context, or instructions."
+    }
+  }
+}

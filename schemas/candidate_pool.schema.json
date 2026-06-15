@@ -1,0 +1,268 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/wenxin-27-11/macro-chain-research-skill/blob/main/schemas/candidate_pool.schema.json",
+  "title": "Candidate Research Pool Schema",
+  "description": "Structured schema for maintaining a candidate research pool in a macro-theme and industry-chain research workflow. This schema is for research support only and does not represent investment advice.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "updated_at",
+    "theme",
+    "market",
+    "pool_summary",
+    "candidate_pool",
+    "follow_up_verification_tasks",
+    "disclaimer"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "default": "0.1.0"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "theme": {
+      "type": "string"
+    },
+    "market": {
+      "type": "string",
+      "default": "A-share"
+    },
+    "time_range": {
+      "type": "string"
+    },
+    "pool_summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "theme_summary",
+        "key_demand_drivers",
+        "key_bottleneck_segments",
+        "main_uncertainties"
+      ],
+      "properties": {
+        "theme_summary": {
+          "type": "string"
+        },
+        "key_demand_drivers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "key_bottleneck_segments": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "main_uncertainties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "candidate_pool": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tier_1",
+        "tier_2",
+        "watchlist",
+        "excluded"
+      ],
+      "properties": {
+        "tier_1": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/candidate_item"
+          }
+        },
+        "tier_2": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/candidate_item"
+          }
+        },
+        "watchlist": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/candidate_item"
+          }
+        },
+        "excluded": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/candidate_item"
+          }
+        }
+      }
+    },
+    "follow_up_verification_tasks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "task",
+          "priority",
+          "suggested_source"
+        ],
+        "properties": {
+          "task": {
+            "type": "string"
+          },
+          "priority": {
+            "type": "string",
+            "enum": [
+              "high",
+              "medium",
+              "low"
+            ]
+          },
+          "suggested_source": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "disclaimer": {
+      "type": "string",
+      "const": "This candidate research pool is for research support only and does not constitute investment advice, stock recommendation, trading signal, price prediction, or return guarantee."
+    }
+  },
+  "$defs": {
+    "candidate_item": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "company",
+        "chain_position",
+        "bottleneck_relevance",
+        "business_purity",
+        "evidence_level",
+        "key_reasons",
+        "main_risks",
+        "missing_evidence",
+        "next_verification_tasks",
+        "research_priority_note",
+        "not_investment_advice"
+      ],
+      "properties": {
+        "company": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "name"
+          ],
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "ticker": {
+              "type": "string"
+            },
+            "exchange": {
+              "type": "string"
+            }
+          }
+        },
+        "chain_position": {
+          "type": "string"
+        },
+        "related_segment": {
+          "type": "string"
+        },
+        "bottleneck_relevance": {
+          "type": "string",
+          "enum": [
+            "high",
+            "medium",
+            "low",
+            "unclear"
+          ]
+        },
+        "business_purity": {
+          "type": "string",
+          "enum": [
+            "high",
+            "medium",
+            "low",
+            "unclear"
+          ]
+        },
+        "evidence_level": {
+          "type": "string",
+          "enum": [
+            "A",
+            "B",
+            "C",
+            "D",
+            "insufficient"
+          ]
+        },
+        "key_reasons": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "main_risks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "missing_evidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "next_verification_tasks": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "upgrade_conditions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "downgrade_conditions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "exclusion_reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "research_priority_note": {
+          "type": "string"
+        },
+        "last_reviewed_at": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "not_investment_advice": {
+          "type": "boolean",
+          "const": true
+        }
+      }
+    }
+  }
+}
