@@ -82,6 +82,27 @@ This makes the project closer to a structured research workflow than a simple st
 
 ---
 
+## 30-Second Quick Start
+1. Copy prompts/system.md
+2. Copy one task prompt:
+   - weekly_research.md
+   - stock_analysis.md
+   - candidate_pool_update.md
+3. Paste them into your LLM tool.
+4. Provide your theme, company, or candidate pool.
+5. Bring your own data.
+6. Review the evidence level and follow-up verification tasks.
+
+## 30 秒快速开始
+
+1. 复制 prompts/system.md
+2. 选择一个任务 Prompt
+3. 粘贴到你的大模型工具中
+4. 输入研究主题、公司或候选池
+5. 自行提供数据
+6. 查看证据等级、风险和后续验证任务
+
+
 ## 1. 项目定位
 
 `macro-chain-research-skill` 不是自动选股 Agent，也不是自动交易系统。
